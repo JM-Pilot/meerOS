@@ -1,6 +1,6 @@
 #include <stdint.h>
-#ifndef _KERNEL_LIB_PSF2_H
-#define _KERNEL_LIB_PSF2_H
+#ifndef _KERNEL_LIB_PSF_H
+#define _KERNEL_LIB_PSF_H
 
 extern char _binary_misc_fonts_ter_u18n_psf_start[];
 extern char _binary_misc_fonts_default8x16_psf_start[];
@@ -44,4 +44,4 @@ void psf1_draw_char(struct psf1_font_hdr *font, uint8_t c,
 int psf2_init_font(struct psf2_font_hdr **font, char *font_data);
 void psf2_draw_char(struct psf2_font_hdr *font, uint8_t c,
 		    int x, int y, uint32_t fg, uint32_t bg);
-#endif
+#endif /* _KERNEL_LIB_PSF_H*/

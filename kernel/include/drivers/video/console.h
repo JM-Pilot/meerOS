@@ -28,4 +28,4 @@ void console_putc(struct console_hdr *console, char c);
 void console_puts(struct console_hdr *console, const char *s);
 void console_set_col(struct console_hdr *console, uint32_t fg, uint32_t bg);
 void console_putnl(struct console_hdr *console);
-#endif
+#endif /* _DRIVERS_VIDEO_CONSOLE_H */

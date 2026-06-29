@@ -3,4 +3,4 @@
 #define _KERNEL_H
 
 extern struct console_hdr kcon;
-#endif
+#endif /* _KERNEL_H */

@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include <limine.h>
 #include <psf.h>
+#include <printk.h>
 #include <boot/requests.h>
 #include <arch/x64/boot/gdt.h>
 #include <drivers/video/framebuffer.h>
