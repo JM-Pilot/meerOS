@@ -1,6 +1,6 @@
 #include <stdint.h>
-#ifndef _ARCH_X64_BOOT
-#define _ARCH_X64_BOOT
+#ifndef _ARCH_X64_BOOT_GDT_H
+#define _ARCH_X64_BOOT_GDT_H
 
 #define NULL_SELECTOR 0x00
 #define KERNEL_CS 0x08
@@ -25,5 +25,5 @@ struct gdt_entry {
 void gdt_set_entry(uint8_t n,
 	uint32_t limit, uint32_t base, 
 	uint8_t access, uint8_t flags);
-void gdt_init();
-#endif
+void gdt_init(void);
+#endif /* _ARCH_X64_BOOT_GDT_H*/

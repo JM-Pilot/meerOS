@@ -49,7 +49,14 @@ run-efi: $(TOOLS)/edk2-ovmf-bins $(BUILD)/meerOS.iso
 		-drive if=pflash,format=raw,readonly=on,file=$(TOOLS)/edk2-ovmf-bins/ovmf-code-x86_64.fd \
 		-drive if=pflash,format=raw,file=$(TOOLS)/edk2-ovmf-bins/ovmf-vars-x86_64.fd \
 		-m 512M \
-		-d int,cpu_reset -D $(BUILD)/QEMU_LOGS.txt
+		-d int,cpu_reset -D $(BUILD)/QEMU_LOGS.txt \
+		-no-reboot -no-shutdown
+run-bios: $(BUILD)/meerOS.iso
+	@printf "RUNNING ON QEMU\n"
+	@qemu-system-x86_64 -cdrom $(BUILD)/meerOS.iso \
+		-m 512M \
+		-d int,cpu_reset -D $(BUILD)/QEMU_LOGS.txt \
+		-no-reboot -no-shutdown
 clean:
 	rm -rf $(BUILD)
 clean-tools:

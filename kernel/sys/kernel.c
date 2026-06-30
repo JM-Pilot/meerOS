@@ -6,6 +6,7 @@
 #include <printk.h>
 #include <boot/requests.h>
 #include <arch/x64/boot/gdt.h>
+#include <arch/x64/int/idt.h>
 #include <drivers/video/framebuffer.h>
 #include <drivers/video/console.h>
 // Halt and catch fire function.
@@ -34,11 +35,15 @@ struct console_hdr kcon;
  */
 void kernel_main(void)
 {
+	__asm__ volatile("cli");
 	check_requests();
 	framebuffer_init();
 	console_init(&kcon, PSF_TER_U18N, 8, 0xFFFFFF, 0);
 	console_puts(&kcon, "(kcon) Kernel Console Initialized \n");
 	gdt_init();
 	console_puts(&kcon, "(cpu x64) GDT Initialized \n");
+	idt_init();
+	console_puts(&kcon, "(cpu x64) IDT Initialized \n");
+	__asm__ volatile("sti");
 	hcf();
 }

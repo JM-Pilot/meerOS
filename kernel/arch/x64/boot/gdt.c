@@ -24,7 +24,7 @@ void gdt_set_entry(uint8_t n,
 }
 
 /* Sets up the x64/amd64 GDT and loads it */
-void gdt_init()
+void gdt_init(void)
 {
 
 	gdtr.offset = (uint64_t)&gdt;
